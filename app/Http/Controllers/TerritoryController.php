@@ -17,6 +17,12 @@ class TerritoryController extends Controller
         //
     }
 
+    public function getterritory(Request $request)
+    {
+        $territory = Territory::where('conc_id',$request->conc_id)->get();
+        return response()->json($territory);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -17,6 +17,12 @@ class ConcController extends Controller
         //
     }
 
+    public function getconc(Request $request)
+    {
+        $conc = Conc::where('region_id',$request->region_id)->get();
+        return response()->json($conc);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ConcController;
+use App\Http\Controllers\TerritoryController;
+use App\Http\Controllers\MarketVisitReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes(['register' => false]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Main Route
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    // User Routes
+    Route::get('/add/user',[HomeController::class,'create'])->name('user.add');
+    Route::post('/add-user',[HomeController::class,'store'])->name('add user');
+    Route::get('/users',[HomeController::class, 'users'])->name('users');
+    Route::get('/profile/users/{user?}',[HomeController::class,'show'])->name('profile');
+    Route::put('password/{user}',[HomeController::class,'update'])->name('password');
+    Route::get('/edit/{user}/user',[HomeController::class,'edit'])->name('user.edit');
+    Route::delete('/uers/{user}',[HomeController::class,'destroy'])->name('user.remove');
+    Route::get('/getconc', [ConcController::class,'getconc'])->name('getconc');
+    Route::get('/getterritory', [TerritoryController::class,'getterritory'])->name('territory');
+    // Market Visit Report Routes
+    Route::get('add/marketvisitreport', [MarketVisitReportController::class,'create'])->name('add report');
+});

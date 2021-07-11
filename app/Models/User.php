@@ -73,11 +73,11 @@ class User extends Authenticatable
         'email',
         'mobile',
         'designation',
-        'password',
         'department_id',
         'region_id',
         'conc_id',
         'territory_id',
+        'password',
     ];
 
     /**

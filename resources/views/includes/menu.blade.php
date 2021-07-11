@@ -11,7 +11,7 @@
           </li>
 
           <li class="pt-2 pb-1">
-            <span class="nav-item-head">E Nuska</span>
+            <span class="nav-item-head">{{ config('app.name', 'Laravel') }}</span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">
@@ -19,7 +19,7 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          @if(in_array(Auth::user()->department->name, array('Pharmacy','Admin','Doctors') ))
+         {{--  @if(in_array(Auth::user()->department->name, array('Pharmacy','Admin','Doctors') ))
           <li class="nav-item">
             <a class="nav-link" href="{{ route('lead.add') }}">
               <i class="mdi mdi-cart-plus menu-icon"></i>
@@ -77,33 +77,8 @@
               </ul>
             </div>
           </li>
-          @endif
+          @endif --}}
           @if(Auth::user()->department->name == 'Admin')
-           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#report" aria-expanded="false" aria-controls="report">
-              <i class="mdi mdi-transcribe-close menu-icon"></i>
-              <span class="menu-title">Reports</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="report">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('userlogs') }}">Administration Log</a></li>
-              </ul>
-            </div>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#department" aria-expanded="false" aria-controls="department">
-              <i class="mdi mdi-account-network menu-icon"></i>
-              <span class="menu-title">Department</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="department">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('department.add') }}">Add Department</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('departments') }}">Departments</a></li>
-              </ul>
-            </div>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#user" aria-expanded="false" aria-controls="user">
               <i class="mdi mdi-account menu-icon"></i>
