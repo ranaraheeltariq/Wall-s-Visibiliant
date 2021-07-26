@@ -13804,7 +13804,7 @@ select.tt-hint {
   0% {
     -webkit-transform: scale(1);
     transform: scale(1);
-    background-color: #2b62ff; }
+    background-color: #f92e2d; }
   10% {
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
@@ -13825,7 +13825,7 @@ select.tt-hint {
   0% {
     -webkit-transform: scale(1);
     transform: scale(1);
-    background-color: #2b62ff; }
+    background-color: #f92e2d; }
   10% {
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
@@ -17556,13 +17556,13 @@ div.tagsinput {
         color: #ffffff;
         cursor: default; }
     .wizard > .steps .done a {
-      background: #2b62ff;
+      background: #f92e2d;
       color: #ffffff; }
       .wizard > .steps .done a:hover {
-        background: #2b62ff;
+        background: #f92e2d;
         color: #ffffff; }
       .wizard > .steps .done a:active {
-        background: #2b62ff;
+        background: #f92e2d;
         color: #ffffff; }
     .wizard > .steps .error a {
       background: #ff0854;
@@ -17577,7 +17577,7 @@ div.tagsinput {
     background: #f8f9fb;
     display: block;
     margin: 0.5em;
-    min-height: 24em;
+    min-height: 30em;
     overflow: hidden;
     position: relative;
     width: auto;

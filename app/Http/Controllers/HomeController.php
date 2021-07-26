@@ -17,7 +17,39 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $territory = Auth::user()->territory_id;
+        $conc = Auth::user()->conc_id;
+        $region = Auth::user()->region_id;
+        if($territory == null && $conc != null){
+            $ters = Auth::user()->conc->territories;
+            $conc = array();
+            foreach($ters as $tr)
+            {
+                $conc[] = $tr->id;
+            }
+            $data = $conc;
+        }
+        if($territory == null && $conc == null && $region != null){
+            $cons = Auth::user()->region->concs;
+            $region = array();
+            foreach($cons as $co)
+            {
+                foreach($co->territories as $territ)
+                {
+                    $region[] = $territ->id;
+                }
+            }
+            $data = $region;
+        }
+        if($territory != null){
+            $data[] = $territory;
+        }
+        if($territory == null && $conc == null && $region == null)
+        {
+            $data = ([]);
+        }
+        // dd($data);
+        return view('home')->with('data',$data);
     }
 
     /**

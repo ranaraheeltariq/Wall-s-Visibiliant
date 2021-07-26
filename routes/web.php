@@ -34,4 +34,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/getterritory', [TerritoryController::class,'getterritory'])->name('territory');
     // Market Visit Report Routes
     Route::get('add/marketvisitreport', [MarketVisitReportController::class,'create'])->name('add report');
+    Route::post('/marketvisitreport', [MarketVisitReportController::class, 'store'])->name('store report');
+    Route::post('/download-report',[MarketVisitReportController::class, 'trerritoryreport'])->name('download report');
+    Route::get('/report',[MarketVisitReportController::class, 'report']);
 });

@@ -35,8 +35,8 @@ class CreateMarketVisitReportsTable extends Migration
             $table->string('cabinet_placement');
             $table->string('competition_visibility');
             $table->string('competition_visibility_type');
-            $table->string('images');
-            $table->text('remarks');
+            $table->string('images')->nullable();
+            $table->text('remarks')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

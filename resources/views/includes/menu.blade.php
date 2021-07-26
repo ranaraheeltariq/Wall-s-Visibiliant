@@ -19,6 +19,12 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('add report') }}">
+              <i class="mdi mdi-cart-plus menu-icon"></i>
+              <span class="menu-title">Add Visit Report</span>
+            </a>
+          </li>
          {{--  @if(in_array(Auth::user()->department->name, array('Pharmacy','Admin','Doctors') ))
           <li class="nav-item">
             <a class="nav-link" href="{{ route('lead.add') }}">
