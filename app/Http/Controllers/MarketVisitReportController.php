@@ -115,13 +115,13 @@ class MarketVisitReportController extends Controller
         return Excel::download(new MarketVisitReportExport($territory_reports), 'Market Visit Report.xlsx');
     }
 
-    public function report()
-    {
-        $territory_reports = MarketVisitReport::all();
-        return view('exports.report', [
-            'marketvisitsreport' => $territory_reports
-        ]);
-    }
+    // public function report()
+    // {
+    //     $territory_reports = MarketVisitReport::all();
+    //     return view('exports.report', [
+    //         'marketvisitsreport' => $territory_reports
+    //     ]);
+    // }
 
     // /**
     //  * Remove the specified resource from storage.
