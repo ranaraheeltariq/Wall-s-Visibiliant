@@ -24,6 +24,7 @@
         <th>COMPETITION VISIBILITY</th>
         <th>REMARKS</th>
         <th>IMAGE</th>
+        <th>Date & Time</th>
     </tr>
     </thead>
     <tbody>
@@ -52,6 +53,7 @@
             <td>{{ implode(', ',unserialize($report->competition_visibility_type)) }}</td>
             <td>{{ $report->remarks }}</td>
             <td>{{asset('/images/visitreport')}}/{{ $report->images }}</td>
+            <td>{{ $report->created_at }}</td>
         </tr>
     @endforeach
     </tbody>

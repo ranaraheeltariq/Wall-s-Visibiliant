@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\MarketVisitReport;
 use App\Models\User;
 use App\Models\Territory;
+use App\Models\Region;
+use App\Models\Conc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Excel;
@@ -111,13 +113,47 @@ class MarketVisitReportController extends Controller
      */
     public function trerritoryreport(Request $request)
     {
-        $territory_reports = MarketVisitReport::where('territory_id',$request->territory_id)->whereBetween('created_at',[$request->from.' 00:00:00',$request->to." 23:59:59"])->get();
+        $request->validate([
+            'from'  => 'required',
+            'to'    =>  'required',
+        ]);
+        $territory = $request->territory_id;
+        $conc = $request->conc_id;
+        $region = $request->region_id;
+        if($territory != null){
+            $data[] = $territory;
+        }
+        else if($territory == null && $conc != null){
+            $ters = Territory::where('conc_id', $conc)->get();
+            $conc = array();
+            foreach($ters as $tr)
+            {
+                $conc[] = $tr->id;
+            }
+            $data = $conc;
+            // dd($data);
+        }
+        else if($territory == null && $conc == null && $region != null){
+            $cons = Conc::where('region_id',$region)->get();
+            $region = array();
+            foreach($cons as $co)
+            {
+                foreach($co->territories as $territ)
+                {
+                    $region[] = $territ->id;
+                }
+            }
+            $data = $region;
+        }
+        // dd('error');
+
+        $territory_reports = MarketVisitReport::whereIn('territory_id',$data)->whereBetween('created_at',[$request->from.' 00:00:00',$request->to." 23:59:59"])->get();
         return Excel::download(new MarketVisitReportExport($territory_reports), 'Market Visit Report.xlsx');
     }
 
     // public function report()
     // {
-    //     $territory_reports = MarketVisitReport::all();
+    //     $territory_reports = MarketVisitReport::whereIn('territory_id',$data)->whereBetween('created_at',[$request->from.' 00:00:00',$request->to." 23:59:59"])->get();
     //     return view('exports.report', [
     //         'marketvisitsreport' => $territory_reports
     //     ]);

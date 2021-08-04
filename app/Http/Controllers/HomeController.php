@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Territory;
+use App\Models\Region;
+use App\Models\Conc;
 use Mail;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,34 +23,62 @@ class HomeController extends Controller
         $territory = Auth::user()->territory_id;
         $conc = Auth::user()->conc_id;
         $region = Auth::user()->region_id;
-        if($territory == null && $conc != null){
-            $ters = Auth::user()->conc->territories;
-            $conc = array();
-            foreach($ters as $tr)
-            {
-                $conc[] = $tr->id;
-            }
-            $data = $conc;
-        }
-        if($territory == null && $conc == null && $region != null){
-            $cons = Auth::user()->region->concs;
-            $region = array();
-            foreach($cons as $co)
-            {
-                foreach($co->territories as $territ)
-                {
-                    $region[] = $territ->id;
-                }
-            }
-            $data = $region;
-        }
-        if($territory != null){
-            $data[] = $territory;
-        }
+
         if($territory == null && $conc == null && $region == null)
         {
-            $data = ([]);
+            $regions = Region::all();
+            $concs = Conc::all();
+            $territories = Territory::all();
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territory,
+            ]);
         }
+        else if($territory == null && $conc == null && $region != null){
+            $regions = Region::where('id', $region)->get();
+            $concs = Conc::where('region_id',$region)->get();
+            $contemp = array();
+            foreach($concs as $tr)
+            {
+                $contemp[] = $tr->id;
+            }
+            $territories = Territory::whereIn('conc_id',$contemp)->get();
+
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territories,
+            ]);
+        }
+        else if($territory == null && $conc != null && $region != null){
+            $regions = Region::where('id', $region)->get();
+            $concs = Conc::where('id',$conc)->get();
+            $contemp = array();
+            foreach($concs as $tr)
+            {
+                $contemp[] = $tr->id;
+            }
+            $territories = Territory::whereIn('conc_id',$contemp)->get();
+
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territories,
+            ]);
+        }
+        else if($territory != null && $conc != null && $region != null){
+            $regions = Region::where('id', $region)->get();
+            $concs = Conc::where('id',$conc)->get();
+            $territories = Territory::where('id',$territory)->get();
+
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territories,
+            ]);
+        }
+
         // dd($data);
         return view('home')->with('data',$data);
     }
