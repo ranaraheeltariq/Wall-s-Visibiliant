@@ -459,10 +459,8 @@
       });
     }
     if($('#region').val() == ''){
-      alert('Region');
       $('#region').change(function(){
         var reg_val = $(this).val();
-        alert(reg_val);
         if(reg_val){
           $.ajax({
             type:"GET",
@@ -486,7 +484,6 @@
       });
     }
     else if($('#region').val() != '' && $('#conc').val() == ''){
-      alert('conc');
       var reg_val = $('#region').val();
           $.ajax({
             type:"GET",
