@@ -32,8 +32,65 @@ class MarketVisitReportController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $territory = Territory::where('conc_id',$user->conc_id)->get();
-        return view('marketvisitreport')->with(['user'=>$user,'territories'=>$territory]);
+        $territory = $user->territory_id;
+        $conc = $user->conc_id;
+        $region = $user->region_id;
+
+        if($territory == null && $conc == null && $region == null)
+        {
+            $regions = Region::all();
+            $concs = Conc::all();
+            $territory = Territory::all();
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territory,
+            ]);
+        }
+        else if($territory == null && $conc == null && $region != null){
+            $regions = Region::where('id', $region)->get();
+            $concs = Conc::where('region_id',$region)->get();
+            $contemp = array();
+            foreach($concs as $tr)
+            {
+                $contemp[] = $tr->id;
+            }
+            $territories = Territory::whereIn('conc_id',$contemp)->get();
+
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territories,
+            ]);
+        }
+        else if($territory == null && $conc != null && $region != null){
+            $regions = Region::where('id', $region)->get();
+            $concs = Conc::where('id',$conc)->get();
+            $contemp = array();
+            foreach($concs as $tr)
+            {
+                $contemp[] = $tr->id;
+            }
+            $territories = Territory::whereIn('conc_id',$contemp)->get();
+
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territories,
+            ]);
+        }
+        else if($territory != null && $conc != null && $region != null){
+            $regions = Region::where('id', $region)->get();
+            $concs = Conc::where('id',$conc)->get();
+            $territories = Territory::where('id',$territory)->get();
+
+            $data = ([
+                'regions'       =>  $regions,
+                'concs'         =>  $concs,
+                'territories'   =>  $territories,
+            ]);
+        }
+        return view('marketvisitreport')->with(['user'=>$user,'data'=>$data]);
     }
 
     /**
@@ -45,32 +102,34 @@ class MarketVisitReportController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-                'territory_id' => 'required|integer',
-                'visiting_area' => 'required|string',
-                'visiting_route' => 'required|string',
-                'tm_market_name' => 'required|string',
-                'channel' => 'required|string',
-                'retailer' => 'required|string',
-                'retailer_code' => 'required|string',
-                'stock_level' => 'required|string',
-                'cabinet_type' => 'required|array|min:1',
-                'cabinet_type.*' => 'required|string',
-                'cabinet_condition' => 'required|string',
-                'cotc_availability' => 'required|array|min:1',
-                'cotc_availability.*' => 'required|string',
-                'new_innovation_status' => 'required|array|min:1',
-                'new_innovation_status.*' => 'required|string',
-                'new_innovation_posm' => 'required|array|min:1',
-                'new_innovation_posm.*' => 'required|string',
-                'walls_visibility' => 'required|array|min:1',
-                'walls_visibility.*' => 'required|string',
-                'cabinet_placement' => 'required|array|min:1',
-                'cabinet_placement.*' => 'required|string',
-                'competition_visibility' => 'required|array|min:1',
-                'competition_visibility.*' => 'required|string',
-                'competition_visibility_type' => 'required|array|min:1',
+                'region'                        => 'required|integer',
+                'conc'                          => 'required|integer',
+                'territory_id'                  => 'required|integer',
+                'visiting_area'                 => 'required|string',
+                'visiting_route'                => 'required|string',
+                'tm_market_name'                => 'required|string',
+                'channel'                       => 'required|string',
+                'retailer'                      => 'required|string',
+                'retailer_code'                 => 'required|string',
+                'stock_level'                   => 'required|string',
+                'cabinet_type'                  => 'required|array|min:1',
+                'cabinet_type.*'                => 'required|string',
+                'cabinet_condition'             => 'required|string',
+                'cotc_availability'             => 'required|array|min:1',
+                'cotc_availability.*'           => 'required|string',
+                'new_innovation_status'         => 'required|array|min:1',
+                'new_innovation_status.*'       => 'required|string',
+                'new_innovation_posm'           => 'required|array|min:1',
+                'new_innovation_posm.*'         => 'required|string',
+                'walls_visibility'              => 'required|array|min:1',
+                'walls_visibility.*'            => 'required|string',
+                'cabinet_placement'             => 'required|array|min:1',
+                'cabinet_placement.*'           => 'required|string',
+                'competition_visibility'        => 'required|array|min:1',
+                'competition_visibility.*'      => 'required|string',
+                'competition_visibility_type'   => 'required|array|min:1',
                 'competition_visibility_type.*' => 'required|string',
-                'images' => 'nullable|image',
+                'images'                        => 'nullable|image',
         ]);
         $image = null;
         if($request->has('images')){

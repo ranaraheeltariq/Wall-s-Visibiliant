@@ -40,29 +40,47 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label text-uppercase">Region</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="region" value="{{$user->region->name}}" disabled="disabled">
+                                   <select class="js-example-basic-single form-control{{ $errors->has('region') ? ' form-control-danger' : '' }}" name="region" id="region">
+                                    <option value="">Select Region..</option>
+                                    @foreach($data['regions'] as $region)
+                                    @php $select = $user->region_id == $region->id ? 'selected=selected' : '' @endphp
+                                    <option {{$select}} value="{{$region->id}}">{{$region->name}}</option>
+                                    @endforeach
+                                  </select>
+                                   @if ($errors->has('region'))
+                                   <label class="error mt-2 text-danger" for="$errors->has('region')">{{ $errors->first('region') }}</label>
+                                   @endif
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 conc">
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label text-uppercase">Conc</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="conc" value="{{$user->conc->name}}" disabled="disabled">
+                                  <select class="js-example-basic-single form-control{{ $errors->has('conc') ? ' form-control-danger' : '' }}" name="conc" id="conc">
+                                    <option value="">Select Conc..</option>
+                                    @foreach($data['concs'] as $conc)
+                                    @php $select = $user->conc_id == $conc->id ? 'selected=selected' : '' @endphp
+                                    <option {{$select}} value="{{$conc->id}}">{{$conc->name}}</option>
+                                    @endforeach
+                                  </select>
+                                   @if ($errors->has('conc'))
+                                   <label class="error mt-2 text-danger" for="$errors->has('conc')">{{ $errors->first('conc') }}</label>
+                                   @endif
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 territory">
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label text-uppercase">Territory</label>
                                 <div class="col-sm-9">
-                                  <select class="js-example-basic-single form-control{{ $errors->has('territory_id') ? ' form-control-danger' : '' }}" name="territory_id">
+                                  <select class="js-example-basic-single form-control{{ $errors->has('territory_id') ? ' form-control-danger' : '' }}" name="territory_id" id="territory">
                                     <option value="">Select Territory..</option>
-                                    @foreach($territories as $department)
-                                    @php $select = $user->territory_id == $department->id ? 'selected=selected' : '' @endphp
-                                    <option {{$select}} value="{{$department->id}}">{{$department->name}}</option>
+                                    @foreach($data['territories'] as $territory)
+                                    @php $select = $user->territory_id == $territory->id ? 'selected=selected' : '' @endphp
+                                    <option {{$select}} value="{{$territory->id}}">{{$territory->name}}</option>
                                     @endforeach
                                   </select>
                                    @if ($errors->has('territory_id'))
@@ -407,9 +425,85 @@
 <script src="{{ asset('assets') }}/js/form-validation.js"></script>
 <!-- End custom js for this page -->
 <script type="text/javascript">
-  $(document).ready(function(){
-
-});
+  $(document).ready(function() {
+    if($('#conc').val() == '')
+    {
+      $("#conc").empty();
+      $("#conc").append('<option value="">Select Conc..</option>');
+    }
+    if($('#conc').val() == '' && $('#territory').val() == ''){
+      $("#territory").empty();
+      $("#territory").append('<option value="">Select Territory..</option>');
+      $('#conc').change(function(){
+        var conc_val = $(this).val();
+        if(conc_val){
+          $.ajax({
+            type:"GET",
+            url:"{{url('getterritory')}}?conc_id="+conc_val,
+            dataType: 'json',
+            success:function(res){
+              if(res){
+                $("#territory").empty();
+                $("#territory").append('<option value="">Select Territory..</option>');
+                $.each(res,function(key,value){
+                  $("#territory").append('<option value="'+value.id+'">'+value.name+'</option>');
+                });
+              }
+            }
+          });
+        }
+        else {
+          $("#territory").empty();
+          $("#territory").append('<option value="">Select Territory..</option>');
+        }
+      });
+    }
+    if($('#region').val() == ''){
+      alert('Region');
+      $('#region').change(function(){
+        var reg_val = $(this).val();
+        alert(reg_val);
+        if(reg_val){
+          $.ajax({
+            type:"GET",
+            url:"{{url('getconc')}}?region_id="+reg_val,
+            dataType: 'json',
+            success:function(res){
+              if(res){
+                $("#conc").empty();
+                $("#conc").append('<option value="">Select Conc..</option>');
+                $.each(res,function(key,value){
+                  $("#conc").append('<option value="'+value.id+'">'+value.name+'</option>');
+                });
+              }
+            }
+          });
+        }
+        else {
+          $("#conc").empty();
+          $("#conc").append('<option value="">Select Conc..</option>');
+        }
+      });
+    }
+    else if($('#region').val() != '' && $('#conc').val() == ''){
+      alert('conc');
+      var reg_val = $('#region').val();
+          $.ajax({
+            type:"GET",
+            url:"{{url('getconc')}}?region_id="+reg_val,
+            dataType: 'json',
+            success:function(res){
+              if(res){
+                $("#conc").empty();
+                $("#conc").append('<option value="">Select Conc..</option>');
+                $.each(res,function(key,value){
+                  $("#conc").append('<option value="'+value.id+'">'+value.name+'</option>');
+                });
+              }
+            }
+          });
+    }
+  });
 </script>
   @if(session('status'))
 <script>
