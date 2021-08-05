@@ -24,7 +24,7 @@
         <th>COMPETITION VISIBILITY</th>
         <th>REMARKS</th>
         <th>IMAGE</th>
-        <th>Date & Time</th>
+        <th>Submited On</th>
     </tr>
     </thead>
     <tbody>
