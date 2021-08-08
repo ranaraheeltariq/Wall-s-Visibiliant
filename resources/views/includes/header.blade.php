@@ -8,7 +8,7 @@
               <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="https://www.bootstrapdash.com/demo/plus/jquery/template/assets/images/logo-mini.svg" alt="logo" /></a> -->
             </div>
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item nav-logout d-none d-md-block">
+              <li class="nav-item nav-logout d-md-block">
                 <a class="btn btn-sm btn-danger" ref="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -3,9 +3,12 @@
         <ul class="nav">
           <li class="nav-item nav-profile border-bottom">
             <a href="#" class="nav-link flex-column">
-              <div class="nav-profile-image">
-                <!-- <img src="https://sehat.com.pk/product_images/sehattmlogo.png" alt="profile"> -->
-                <!--change to offline or busy as needed-->
+              <!-- <div class="nav-profile-image">
+                <img src="https://sehat.com.pk/product_images/sehattmlogo.png" alt="profile">
+                change to offline or busy as needed
+              </div> -->
+              <div class="nav-profile-text d-flex ml-0 mb-3 flex-column">
+                <span class="font-weight-semibold mb-1 mt-2 text-center">{{Auth::user()->name}}</span>
               </div>
             </a>
           </li>
