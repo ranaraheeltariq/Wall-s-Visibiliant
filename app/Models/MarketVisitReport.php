@@ -36,5 +36,5 @@ class MarketVisitReport extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'territory_id','visiting_area','visiting_route','tm_market_name','channel','retailer','retailer_code','stock_level','cabinet_type','cabinet_condition','cotc_availability','new_innovation_status','new_innovation_posm','walls_visibility','cabinet_placement','competition_visibility','competition_visibility_type','images','remarks'];
+    protected $fillable = ['user_id', 'territory_id','visiting_area','visiting_route','visit_with','visit_with_designation','channel','retailer','retailer_code','bar_code','retailer_type','stock_level','cabinet_type','cabinet_condition','cotc_availability','new_innovation_status','house_keeping','price_card_condition','new_innovation_posm','walls_visibility','cabinet_placement','cabinet_position_change','competition_visibility','competition_visibility_type','verification','images','remarks','retailer_contact','retailer_feedback'];
 }

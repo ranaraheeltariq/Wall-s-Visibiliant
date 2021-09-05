@@ -36,8 +36,8 @@ class MarketVisitReportController extends Controller
         $conc = $user->conc_id;
         $region = $user->region_id;
 
-        if($territory == null && $conc == null && $region == null)
-        {
+        // if($territory == null && $conc == null && $region == null)
+        if($conc == null && $region == null){
             $regions = Region::all();
             $concs = Conc::all();
             $territory = Territory::all();
@@ -47,7 +47,8 @@ class MarketVisitReportController extends Controller
                 'territories'   =>  $territory,
             ]);
         }
-        else if($territory == null && $conc == null && $region != null){
+        // else if($territory == null && $conc == null && $region != null){
+        else if($conc == null && $region != null){
             $regions = Region::where('id', $region)->get();
             $concs = Conc::where('region_id',$region)->get();
             $contemp = array();
@@ -63,7 +64,8 @@ class MarketVisitReportController extends Controller
                 'territories'   =>  $territories,
             ]);
         }
-        else if($territory == null && $conc != null && $region != null){
+        // else if($territory == null && $conc != null && $region != null){
+        else if($conc != null && $region != null){
             $regions = Region::where('id', $region)->get();
             $concs = Conc::where('id',$conc)->get();
             $contemp = array();
@@ -79,17 +81,17 @@ class MarketVisitReportController extends Controller
                 'territories'   =>  $territories,
             ]);
         }
-        else if($territory != null && $conc != null && $region != null){
-            $regions = Region::where('id', $region)->get();
-            $concs = Conc::where('id',$conc)->get();
-            $territories = Territory::where('id',$territory)->get();
+        // else if($territory != null && $conc != null && $region != null){
+        //     $regions = Region::where('id', $region)->get();
+        //     $concs = Conc::where('id',$conc)->get();
+        //     $territories = Territory::where('id',$territory)->get();
 
-            $data = ([
-                'regions'       =>  $regions,
-                'concs'         =>  $concs,
-                'territories'   =>  $territories,
-            ]);
-        }
+        //     $data = ([
+        //         'regions'       =>  $regions,
+        //         'concs'         =>  $concs,
+        //         'territories'   =>  $territories,
+        //     ]);
+        // }
         return view('marketvisitreport')->with(['user'=>$user,'data'=>$data]);
     }
 
@@ -101,16 +103,20 @@ class MarketVisitReportController extends Controller
      */
     public function store(Request $request)
     {
+        // file_put_contents('postrequest.txt', json_encode($request->all()));
         $request->validate([
                 'region'                        => 'required|integer',
                 'conc'                          => 'required|integer',
                 'territory_id'                  => 'required|integer',
                 'visiting_area'                 => 'required|string',
                 'visiting_route'                => 'required|string',
-                'tm_market_name'                => 'required|string',
+                'visit_with'                    => 'nullable|string',
+                'visit_with_designation'        => 'nullable|in:AM,TM,VM',
                 'channel'                       => 'required|string',
                 'retailer'                      => 'required|string',
                 'retailer_code'                 => 'required|string',
+                'bar_code'                      => 'required|string',
+                'retailer_type'                 => 'required|in:Economy,Standard,Premium',
                 'stock_level'                   => 'required|string',
                 'cabinet_type'                  => 'required|array|min:1',
                 'cabinet_type.*'                => 'required|string',
@@ -119,17 +125,25 @@ class MarketVisitReportController extends Controller
                 'cotc_availability.*'           => 'required|string',
                 'new_innovation_status'         => 'required|array|min:1',
                 'new_innovation_status.*'       => 'required|string',
-                'new_innovation_posm'           => 'required|array|min:1',
-                'new_innovation_posm.*'         => 'required|string',
+                'house_keeping'                 => 'required|array|min:1',
+                'house_keeping.*'               => 'required|string',
+                'price_card_condition'          => 'nullable|string',
+                'new_innovation_posm'           => 'nullable|string',
                 'walls_visibility'              => 'required|array|min:1',
                 'walls_visibility.*'            => 'required|string',
                 'cabinet_placement'             => 'required|array|min:1',
                 'cabinet_placement.*'           => 'required|string',
+                'cabinet_position_change'       => 'nullable|array|min:1',
+                'cabinet_position_change.*'     => 'nullable|string',
                 'competition_visibility'        => 'required|array|min:1',
                 'competition_visibility.*'      => 'required|string',
                 'competition_visibility_type'   => 'required|array|min:1',
                 'competition_visibility_type.*' => 'required|string',
+                'verification'                  => 'required|array|min:1',
+                'verification.*'                => 'required|string',
                 'images'                        => 'nullable|image',
+                'retailer_contact'              => 'nullable|string',
+                'retailer_feedback'             => 'nullable|string',
         ]);
         $image = null;
         if($request->has('images')){
@@ -138,26 +152,35 @@ class MarketVisitReportController extends Controller
         $file->move(public_path('images/visitreport'), $image);
         }
         $data = ([
-            'user_id' => Auth::user()->id,
-            'territory_id' => $request->territory_id,
-            'visiting_area' => $request->visiting_area,
-            'visiting_route' => $request->visiting_route,
-            'tm_market_name' => $request->tm_market_name,
-            'channel' => $request->channel,
-            'retailer' => $request->retailer,
-            'retailer_code' => $request->retailer_code,
-            'stock_level' => $request->stock_level,
-            'cabinet_type' => serialize($request->cabinet_type),
-            'cabinet_condition' => $request->cabinet_condition,
-            'cotc_availability' => serialize($request->cotc_availability),
-            'new_innovation_status' => serialize($request->new_innovation_status),
-            'new_innovation_posm' => serialize($request->new_innovation_posm),
-            'walls_visibility' => serialize($request->walls_visibility),
-            'cabinet_placement' => serialize($request->cabinet_placement),
-            'competition_visibility' => serialize($request->competition_visibility),
-            'competition_visibility_type' => serialize($request->competition_visibility_type),
-            'remarks' => $request->remarks,
-            'images' => $image,
+            'user_id'                       =>  Auth::user()->id,
+            'territory_id'                  =>  $request->territory_id,
+            'visiting_area'                 =>  $request->visiting_area,
+            'visiting_route'                =>  $request->visiting_route,
+            'visit_with'                    =>  $request->visit_with,
+            'visit_with_designation'        =>  $request->visit_with_designation,
+            'channel'                       =>  $request->channel,
+            'retailer'                      =>  $request->retailer,
+            'retailer_code'                 =>  $request->retailer_code,
+            'bar_code'                      =>  $request->bar_code,
+            'retailer_type'                 =>  $request->retailer_type,
+            'stock_level'                   =>  $request->stock_level,
+            'cabinet_type'                  =>  serialize($request->cabinet_type),
+            'cabinet_condition'             =>  $request->cabinet_condition,
+            'cotc_availability'             =>  serialize($request->cotc_availability),
+            'new_innovation_status'         =>  serialize($request->new_innovation_status),
+            'house_keeping'                 =>  serialize($request->house_keeping),
+            'price_card_condition'          =>  $request->price_card_condition,
+            'new_innovation_posm'           =>  $request->new_innovation_posm,
+            'walls_visibility'              =>  serialize($request->walls_visibility),
+            'cabinet_placement'             =>  serialize($request->cabinet_placement),
+            'cabinet_position_change'       =>  serialize($request->cabinet_position_change),
+            'competition_visibility'        =>  serialize($request->competition_visibility),
+            'competition_visibility_type'   =>  serialize($request->competition_visibility_type),
+            'verification'                  =>  serialize($request->verification),
+            'remarks'                       =>  $request->remarks,
+            'retailer_contact'              =>  $request->retailer_contact,
+            'retailer_feedback'             =>  $request->retailer_feedback,
+            'images'                        =>  $image,
         ]);
         // dd($data);
         MarketVisitReport::create($data);

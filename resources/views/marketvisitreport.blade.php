@@ -102,10 +102,10 @@
                             </div>
                           </div>
                           <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">Visiting Route</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-5 col-form-label text-uppercase">Visiting Route</label>
+                                <div class="col-sm-7">
                                   <input type="text" class="form-control{{ $errors->has('visiting_route') ? ' form-control-danger' : '' }}" name="visiting_route" value="{{old('visiting_route')}}" required="required">
                                   @if ($errors->has('visiting_route'))
                                   <label class="error mt-2 text-danger" for="$errors->has('visiting_route')">{{ $errors->first('visiting_route') }}</label>
@@ -113,13 +113,29 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">TM Market Name</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control{{ $errors->has('tm_market_name') ? ' form-control-danger' : '' }}" name="tm_market_name" value="{{old('tm_market_name')}}" required="required">
-                                  @if ($errors->has('tm_market_name'))
-                                  <label class="error mt-2 text-danger" for="$errors->has('tm_market_name')">{{ $errors->first('tm_market_name') }}</label>
+                                <label class="col-sm-4 col-form-label text-uppercase">Visit With</label>
+                                <div class="col-sm-8">
+                                  <input type="text" class="form-control{{ $errors->has('visit_with') ? ' form-control-danger' : '' }}" name="visit_with" value="{{old('visit_with')}}">
+                                  @if ($errors->has('visit_with'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('visit_with')">{{ $errors->first('visit_with') }}</label>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-uppercase">Designation</label>
+                                <div class="col-sm-8">
+                                  <select class="js-example-basic-single form-control{{ $errors->has('visit_with_designation') ? ' form-control-danger' : '' }}" name="visit_with_designation" id="visit_with_designation">
+                                    <option value="">SELECT Designation..</option>
+                                    <option value="AM">AM</option>
+                                    <option value="TM">TM</option>
+                                    <option value="VM">VM</option>
+                                  </select>
+                                  @if ($errors->has('visit_with_designation'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('visit_with_designation')">{{ $errors->first('visit_with_designation') }}</label>
                                   @endif
                                 </div>
                               </div>
@@ -132,19 +148,35 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">Channel</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-single form-control{{ $errors->has('channel') ? ' form-control-danger' : '' }}" name="channel">
-                                    <option value="">Select Channel..</option>
-                                    <option value="TRADE">TRADE</option>
-                                    <option value="LMT">LMT</option>
-                                    <option value="MOBILE">MOBILE</option>
-                                    <option value="OUT OF HOME">OUT OF HOME</option>
-                                  </select>
+                                <label class="col-sm-2 col-form-label text-uppercase">Channel</label>
+                                  <div class="col-sm-2 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="channel" value="TRADE" > TRADE <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-2 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="channel" value="LMT" > LMT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-2 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="channel" value="MOBILE"> MOBILE <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="channel" value="OUT OF HOME"> OUT OF HOME <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
                                   @if ($errors->has('channel'))
                                   <label class="error mt-2 text-danger" for="$errors->has('channel')">{{ $errors->first('channel') }}</label>
                                   @endif
-                                </div>
                               </div>
                             </div>
                             <div class="col-md-6">
@@ -173,17 +205,16 @@
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">Stock Level</label>
+                                <label class="col-sm-3 col-form-label text-uppercase">Bar Code Scane</label>
                                 <div class="col-sm-9">
-                                  <select class="js-example-basic-single form-control{{ $errors->has('stock_level') ? ' form-control-danger' : '' }}" name="stock_level">
-                                    <option value="">Select stock level..</option>
-                                    <option value="0%">0%</option>
-                                    <option value="10% TO 30%">10% TO 30%</option>
-                                    <option value="30% TO 50%">30% TO 50%</option>
-                                    <option value="50% TO 80%">50% TO 80%</option>
-                                  </select>
-                                  @if ($errors->has('stock_level'))
-                                  <label class="error mt-2 text-danger" for="$errors->has('stock_level')">{{ $errors->first('stock_level') }}</label>
+                                  <div class="input-group">
+                                    <input type="text" class="form-control{{ $errors->has('bar_code') ? ' form-control-danger' : '' }}" name="bar_code" value="{{old('bar_code')}}" required="required">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-sm btn-primary" type="button">Scane</button>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('bar_code'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('bar_code')">{{ $errors->first('bar_code') }}</label>
                                   @endif
                                 </div>
                               </div>
@@ -192,38 +223,135 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">Cabinet Type</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('stock_level') ? ' form-control-danger' : '' }}" multiple="multiple" name="cabinet_type[]">
-                                    <option value="12CFT HT">12CFT HT</option>
-                                    <option value="12CFT VT">12CFT VT</option>
-                                    <option value="15CFT">15CFT</option>
-                                    <option value="18CFT">18CFT</option>
-                                    <option value="SCOOPING">SCOOPING</option>
-                                    <option value="VERTICAL">VERTICAL</option>
-                                  </select>
-                                   @if ($errors->has('cabinet_type'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('cabinet_type')">{{ $errors->first('cabinet_type') }}</label>
-                                   @endif
+                                <label class="col-sm-2 col-form-label text-uppercase">Retailer Type</label>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="retailer_type" id="retailer_type1" value="Economy" > Economy <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="retailer_type" id="retailer_type2" value="Standard" > Standard <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="retailer_type" id="retailer_type3" value="Premium"> Premium <i class="input-helper"></i></label>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-uppercase">Stock Level</label>
+                                  <div class="col-sm-2 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="stock_level" value="0%" > 0% <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-2 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="stock_level" value="10% TO 30%" > 10% TO 30% <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-2 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="stock_level" value="30% TO 50%"> 30% TO 50% <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="stock_level" value="50% TO 80%"> 50% TO 80% <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('stock_level'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('stock_level')">{{ $errors->first('stock_level') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-uppercase">Cabinet Type</label>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="12CFT HT" > 12CFT HT <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="12CFT VT" > 12CFT VT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="15CFT"> 15CFT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="18CFT"> 18CFT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="SCOOPING"> SCOOPING <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="VERTICAL"> VERTICAL <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_type[]" value="COUNTER TOP"> COUNTER TOP <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('cabinet_type'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('cabinet_type')">{{ $errors->first('cabinet_type') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
                                 <label class="col-sm-3 col-form-label text-uppercase">CABINET CONDITION</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 cw">
                                   <div class="form-check">
                                     <label class="form-check-label">
                                       <input type="radio" class="form-check-input" name="cabinet_condition" id="membershipRadios1" value="good" > Good <i class="input-helper"></i></label>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 cw">
                                   <div class="form-check">
                                     <label class="form-check-label">
                                       <input type="radio" class="form-check-input" name="cabinet_condition" id="membershipRadios1" value="bad" > Bad <i class="input-helper"></i></label>
                                   </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-3 cw">
                                   <div class="form-check">
                                     <label class="form-check-label">
                                       <input type="radio" class="form-check-input" name="cabinet_condition" id="membershipRadios2" value="Average"> Average <i class="input-helper"></i></label>
@@ -232,91 +360,443 @@
                               </div>
                             </div>
                           </div>
+                        </section>
+                        <h3>Stock Information</h3>
+                        <section>
+                          <h3>Stock Information</h3>
+                          <div class="row">
+                            <label class="text-uppercase pl-3">cotc availability</label>
+                            <div class="col-md-12">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">JET SPOT</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['JET SPOT']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['JET SPOT']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">CHOC BAR</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['CHOC BAR']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['CHOC BAR']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">CONE DOUBLE</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['CONE DOUBLE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['CONE DOUBLE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">FEAST</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['FEAST']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['FEAST']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">ONE MANGO</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['ONE MANGO']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['ONE MANGO']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">0NE KK</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['0NE KK']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['0NE KK']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">DONUT</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['DONUT']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="cotc_availability['DONUT']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                  @if ($errors->has('cotc_availability'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('cotc_availability')">{{ $errors->first('cotc_availability') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label class="text-uppercase pl-3">New Innovation Status</label>
+                            <div class="col-md-12">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">CONE BROWNIE</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['CONE BROWNIE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['CONE BROWNIE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">DOUBLE TROUBLE</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['DOUBLE TROUBLE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['DOUBLE TROUBLE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">JASHAN KULFI</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['JASHAN KULFI']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['JASHAN KULFI']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">MINIONS CONE</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CONE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CONE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">MINIONS CUP</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CUP']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CUP']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">ONE CARAMEL</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE CARAMEL']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE CARAMEL']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">ONE COOKIES & CAREEM</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE COOKIES & CAREEM']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE COOKIES & CAREEM']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                @if ($errors->has('new_innovation_status'))
+                                <label class="error mt-2 text-danger" for="$errors->has('new_innovation_status')">{{ $errors->first('new_innovation_status') }}</label>
+                                @endif
+                              </div>
+                            </div>
+                          </div>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">cotc availability</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('stock_level') ? ' form-control-danger' : '' }}" multiple="multiple" name="cotc_availability[]">
-                                    <option value="JET SPOT">JET SPOT</option>
-                                    <option value="12CFT VT">CHOC BAR</option>
-                                    <option value="CONE DOUBLE">CONE DOUBLE</option>
-                                    <option value="FEAST">FEAST</option>
-                                    <option value="ONE MANGO">ONE MANGO</option>
-                                    <option value="0NE KK">0NE KK</option>
-                                    <option value="POP CONE">POP CONE</option>
-                                    <option value="DONUT">DONUT</option>
-                                  </select>
-                                   @if ($errors->has('cotc_availability'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('cotc_availability')">{{ $errors->first('cotc_availability') }}</label>
-                                   @endif
+                                <label class="col-sm-3 col-form-label text-uppercase">House Keeping</label>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="checkbox" class="form-check-input" name="house_keeping[]" id="pricecard" value="Price Card" > Price Card <i class="input-helper"></i></label>
+                                  </div>
                                 </div>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="checkbox" class="form-check-input" name="house_keeping[]" id="membershipRadios1" value="Deicing" > Deicing <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="checkbox" class="form-check-input" name="house_keeping[]" id="membershipRadios2" value="Plannogram"> Plannogram <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                @if ($errors->has('house_keeping'))
+                                <label class="error mt-2 text-danger" for="$errors->has('house_keeping')">{{ $errors->first('house_keeping') }}</label>
+                                @endif
                               </div>
                             </div>
                             <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">New Innovation Status</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('new_innovation_status') ? ' form-control-danger' : '' }}" multiple="multiple" name="new_innovation_status[]">
-                                    <option value="CONE BROWNIE">CONE BROWNIE</option>
-                                    <option value="DOUBLE TROUBLE">DOUBLE TROUBLE</option>
-                                    <option value="JASHAN KULFI">JASHAN KULFI</option>
-                                    <option value="MINIONS CONE">MINIONS CONE</option>
-                                    <option value="ONE MANGO">MINIONS CUP</option>
-                                    <option value="ONE CARAMEL">ONE CARAMEL</option>
-                                    <option value="ONE COOKIES & CAREEM">ONE COOKIES & CAREEM</option>
-                                  </select>
-                                   @if ($errors->has('new_innovation_status'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('new_innovation_status')">{{ $errors->first('new_innovation_status') }}</label>
-                                   @endif
+                              <div class="form-group row" id="pricecard_condition">
+                                <label class="col-sm-3 col-form-label text-uppercase">Price Card Condition</label>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="price_card_condition" id="membershipRadios1" value="good" > Good <i class="input-helper"></i></label>
+                                  </div>
                                 </div>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="price_card_condition" id="membershipRadios1" value="bad" > Bad <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 cw">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="price_card_condition" id="membershipRadios2" value="Average" checked="checked"> Average <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                @if ($errors->has('price_card_condition'))
+                                <label class="error mt-2 text-danger" for="$errors->has('price_card_condition')">{{ $errors->first('price_card_condition') }}</label>
+                                @endif
                               </div>
                             </div>
                           </div>
                         </section>
-                        <h3>Retailer Information</h3>
+                        <h3>Visibility Information</h3>
                         <section>
-                          <h3>Retailer Information</h3>
+                          <h3>Visibility Information</h3>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">New Innovation POSM</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('new_innovation_posm') ? ' form-control-danger' : '' }}" multiple="multiple" name="new_innovation_posm[]">
-                                    <option value="CONE BROWNIE">CONE BROWNIE</option>
-                                    <option value="DOUBLE TROUBLE">DOUBLE TROUBLE</option>
-                                    <option value="JASHAN KULFI">JASHAN KULFI</option>
-                                    <option value="MINIONS CONE">MINIONS CONE</option>
-                                    <option value="ONE MANGO">MINIONS CUP</option>
-                                    <option value="ONE CARAMEL">ONE CARAMEL</option>
-                                    <option value="ONE COOKIES & CAREEM">ONE COOKIES & CAREEM</option>
-                                  </select>
-                                   @if ($errors->has('new_innovation_posm'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('new_innovation_posm')">{{ $errors->first('new_innovation_posm') }}</label>
-                                   @endif
-                                </div>
+                                <label class="col-sm-3 col-form-label text-uppercase">POSM Deployment</label>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="CONE BROWNIE" > CONE BROWNIE <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="DOUBLE TROUBLE" > DOUBLE TROUBLE <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="JASHAN KULFI"> JASHAN KULFI <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">WALLS VISIBILITY</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('walls_visibility') ? ' form-control-danger' : '' }}" multiple="multiple" name="walls_visibility[]">
-                                    <option value="PRICE CARD">PRICE CARD</option>
-                                    <option value="DEICING">DEICING</option>
-                                    <option value="PLANNOGRAM IMPLEMENTATION">PLANNOGRAM IMPLEMENTATION</option>
-                                    <option value="FACIA BACK LIT">FACIA BACK LIT</option>
-                                    <option value="FACIA FRONT LIT">FACIA FRONT LIT</option>
-                                    <option value="COUNTER BRANDING">COUNTER BRANDING</option>
-                                    <option value="COUNTER BRANDING">COUNTER BRANDING</option>
-                                    <option value="WINDOW GRAPHY">WINDOW GRAPHY</option>
-                                    <option value="AV SIGN">AV SIGN</option>
-                                    <option value="ANY POSM">ANY POSM</option>
-                                  </select>
-                                   @if ($errors->has('walls_visibility'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('walls_visibility')">{{ $errors->first('walls_visibility') }}</label>
-                                   @endif
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="MINIONS CONE"> MINIONS CONE <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="MINIONS CUP"> MINIONS CUP <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="ONE CARAMEL"> ONE CARAMEL <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="radio" class="form-check-input new_innovation_posm" name="new_innovation_posm" value="ONE COOKIES & CAREEM"> ONE COOKIES & CAREEM <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('new_innovation_posm'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('new_innovation_posm')">{{ $errors->first('new_innovation_posm') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row" id="posminventory">
+                            <div class="col-md-2">
+                              <div class="form-group row">
+                                <label class="col-sm-6 col-form-label pl-1 pr-1 text-uppercase">Bounting</label>
+                                <div class="col-sm-6">
+                                  <input type="number" class="form-control p-2{{ $errors->has('bounting') ? ' form-control-danger' : '' }}" name="bounting" value="{{old('bounting')}}">
+                                  @if ($errors->has('bounting'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('bounting')">{{ $errors->first('bounting') }}</label>
+                                  @endif
                                 </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group row">
+                                <label class="col-sm-6 col-form-label pl-1 pr-1 text-uppercase">Posters</label>
+                                <div class="col-sm-6">
+                                  <input type="number" class="form-control p-2{{ $errors->has('posters') ? ' form-control-danger' : '' }}" name="posters" value="{{old('posters')}}">
+                                  @if ($errors->has('posters'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('posters')">{{ $errors->first('posters') }}</label>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group row">
+                                <label class="col-sm-6 col-form-label pl-1 pr-1 text-uppercase">Banners</label>
+                                <div class="col-sm-6">
+                                  <input type="number" class="form-control p-2{{ $errors->has('banners') ? ' form-control-danger' : '' }}" name="banners" value="{{old('banners')}}">
+                                  @if ($errors->has('banners'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('banners')">{{ $errors->first('banners') }}</label>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group row">
+                                <label class="col-sm-6 col-form-label pl-1 pr-1 text-uppercase">POP OUT</label>
+                                <div class="col-sm-6">
+                                  <input type="number" class="form-control p-2{{ $errors->has('popout') ? ' form-control-danger' : '' }}" name="popout" value="{{old('popout')}}">
+                                  @if ($errors->has('popout'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('popout')">{{ $errors->first('popout') }}</label>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group row">
+                                <label class="col-sm-6 col-form-label pl-1 pr-1 text-uppercase">Woblers</label>
+                                <div class="col-sm-6">
+                                  <input type="number" class="form-control p-2{{ $errors->has('woblers') ? ' form-control-danger' : '' }}" name="woblers" value="{{old('woblers')}}">
+                                  @if ($errors->has('woblers'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('woblers')">{{ $errors->first('woblers') }}</label>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-group row">
+                                <label class="col-sm-6 col-form-label pl-1 pr-1 text-uppercase">Price Card</label>
+                                <div class="col-sm-6">
+                                  <input type="number" class="form-control p-2{{ $errors->has('pricecard') ? ' form-control-danger' : '' }}" name="pricecard" value="{{old('pricecard')}}">
+                                  @if ($errors->has('pricecard'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('pricecard')">{{ $errors->first('pricecard') }}</label>
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-uppercase">WALLS VISIBILITY</label>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="walls_visibility[]" value="FACIA BACK LIT" > FACIA BACK LIT <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="walls_visibility[]" value="FACIA FRONT LIT" > FACIA FRONT LIT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="walls_visibility[]" value="COUNTER BRANDING"> COUNTER BRANDING <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="walls_visibility[]" value="WINDOW GRAPHY"> WINDOW GRAPHY <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="walls_visibility[]" value="AV SIGN"> AV SIGN <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="walls_visibility[]" value="ANY POSM"> ANY POSM <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('walls_visibility'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('walls_visibility')">{{ $errors->first('walls_visibility') }}</label>
+                                  @endif
                               </div>
                             </div>
                           </div>
@@ -324,55 +804,268 @@
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label text-uppercase">CABINET PLACEMENT</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('cabinet_placement') ? ' form-control-danger' : '' }}" multiple="multiple" name="cabinet_placement[]">
-                                    <option value="BOH">BOH</option>
-                                    <option value="OUTSIDE SHOPS">OUTSIDE SHOPS</option>
-                                    <option value="CHECKOUT">CHECKOUT</option>
-                                    <option value="IMPULSE TRIANGLE">IMPULSE TRIANGLE</option>
-                                    <option value="FROZEN CATEGORY">FROZEN CATEGORY</option>
-                                    <option value="RANDOM">RANDOM</option>
-                                  </select>
-                                   @if ($errors->has('cabinet_placement'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('cabinet_placement')">{{ $errors->first('cabinet_placement') }}</label>
-                                   @endif
-                                </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_placement[]" value="BOH" > BOH <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_placement[]" value="CHECKOUT"> CHECKOUT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_placement[]" value="OUTSIDE SHOPS" > OUTSIDE SHOPS <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">COMPETITION</label>
-                                <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('competition_visibility') ? ' form-control-danger' : '' }}" multiple="multiple" name="competition_visibility[]">
-                                    <option value="OMORE">OMORE</option>
-                                    <option value="HICO">HICO</option>
-                                    <option value="IGLOO">IGLOO</option>
-                                    <option value="YUMMY">YUMMY</option>
-                                    <option value="OTHER">OTHER</option>
-                                  </select>
-                                   @if ($errors->has('competition_visibility'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('competition_visibility')">{{ $errors->first('competition_visibility') }}</label>
-                                   @endif
-                                </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_placement[]" value="IMPULSE TRIANGLE"> IMPULSE TRIANGLE <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_placement[]" value="FROZEN CATEGORY"> FROZEN CATEGORY <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_placement[]" value="RANDOM"> RANDOM <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('cabinet_placement'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('cabinet_placement')">{{ $errors->first('cabinet_placement') }}</label>
+                                  @endif
                               </div>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label text-uppercase">COMPETITION VISIBILITY</label>
+                                <label class="col-sm-6 col-form-label text-uppercase">Cabinet Position Change</label>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['FROM']" value="BOH" > BOH <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['FROM']" value="RANDOM"> RANDOM <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-uppercase">TO</label>
+                                  <div class="col-sm-5 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['TO']" value="IMPULSE TRIANGLE"> IMPULSE TRIANGLE <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-5 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['TO']" value="OUTSIDE SHOPS"> OUTSIDE SHOPS <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('cabinet_position_change'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('cabinet_position_change')">{{ $errors->first('cabinet_position_change') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-uppercase">COMPETITION</label>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility[]" value="OMORE" > OMORE <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility[]" value="HICO"> HICO <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility[]" value="IGLOO" > IGLOO <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility[]" value="YUMMY"> YUMMY <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility[]" value="OTHER"> OTHER <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('competition_visibility'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('competition_visibility')">{{ $errors->first('competition_visibility') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-uppercase">COMPETITION VISIBILITY</label>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility_type[]" value="FACIA BACK LIT" > FACIA BACK LIT <i class="input-helper"></i>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility_type[]" value="FACIA FRONT LIT" > FACIA FRONT LIT <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility_type[]" value="COUNTER BRANDING"> COUNTER BRANDING <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility_type[]" value="WINDOW GRAPHY"> WINDOW GRAPHY <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility_type[]" value="AV SIGN"> AV SIGN <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-3 cw">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="competition_visibility_type[]" value="ANY POSM"> ANY POSM <i class="input-helper"></i></label>
+                                    </div>
+                                  </div>
+                                  @if ($errors->has('competition_visibility_type'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('competition_visibility_type')">{{ $errors->first('competition_visibility_type') }}</label>
+                                  @endif
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <h3>Verification Information</h3>
+                        <section>
+                          <h3>Verification Information</h3>
+                          <div class="row">
+                            <label class="text-uppercase pl-3">Verification</label>
+                            <div class="col-md-12">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">TTS</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['TTS']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['TTS']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">Comp. Invoice</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['Comp. Invoice']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['Comp. Invoice']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">TPR Given</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['TPR Given']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['TPR Given']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <label class="col-sm-2 col-form-label text-uppercase cw-25">Demage Stock</label>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['Demage Stock']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-1 cw-25">
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input type="radio" class="form-check-input" name="verification['Demage Stock']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                  </div>
+                                </div>
+                                @if ($errors->has('verification'))
+                                <label class="error mt-2 text-danger" for="$errors->has('verification')">{{ $errors->first('verification') }}</label>
+                                @endif
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <h3>Feed Back Information</h3>
+                        <section>
+                          <h3>Feed Back Information</h3>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-uppercase">Retailer Contact No</label>
                                 <div class="col-sm-9">
-                                  <select class="js-example-basic-multiple form-control{{ $errors->has('competition_visibility_type') ? ' form-control-danger' : '' }}" multiple="multiple" name="competition_visibility_type[]">
-                                    <option value="FACIA FRONT LIT">FACIA FRONT LIT</option>
-                                    <option value="COUNTER BRANDING">COUNTER BRANDING</option>
-                                    <option value="PILLAR BRANDING">PILLAR BRANDING</option>
-                                    <option value="AV SIGN">AV SIGN</option>
-                                    <option value="POSM">POSM</option>
-                                    <option value="WINDOW GRAPHY">WINDOW GRAPHY</option>
-                                  </select>
-                                   @if ($errors->has('competition_visibility_type'))
-                                   <label class="error mt-2 text-danger" for="$errors->has('competition_visibility_type')">{{ $errors->first('competition_visibility_type') }}</label>
-                                   @endif
+                                  <input type="text" class="form-control{{ $errors->has('retailer_contact') ? ' form-control-danger' : '' }}" name="retailer_contact" value="{{ old('retailer_contact') }}">
+                                  @if ($errors->has('retailer_contact'))
+                                  <label class="error mt-2 text-danger" for="$errors->has('retailer_contact')">{{ $errors->first('retailer_contact') }}</label>
+                                  @endif
                                 </div>
                               </div>
                             </div>
@@ -392,13 +1085,16 @@
                              </div>
                            </div>
                           </div>
-                        </section>
-                        <h3>Finish</h3>
-                        <section>
-                          <h3>Finish</h3>
+                          <div class="form-group">
+                            <label class="text-uppercase">Retailer Feedback</label>
+                            <textarea class="form-control{{ $errors->has('retailer_feedback') ? ' form-control-danger' : '' }}" rows="3" name="retailer_feedback">{{old('retailer_feedback')}}</textarea>
+                            @if($errors->has('retailer_feedback'))
+                            <label class="error mt-2 text-danger" for="$errors->has('retailer_feedback')">{{ $errors->first('retailer_feedback') }}</label>
+                            @endif
+                          </div>
                           <div class="form-group">
                             <label class="text-uppercase">Remarks</label>
-                            <textarea class="form-control{{ $errors->has('remarks') ? ' form-control-danger' : '' }}" rows="3" name="remarks">{{old('visiting_route')}}</textarea>
+                            <textarea class="form-control{{ $errors->has('remarks') ? ' form-control-danger' : '' }}" rows="3" name="remarks">{{old('remarks')}}</textarea>
                             @if($errors->has('remarks'))
                             <label class="error mt-2 text-danger" for="$errors->has('remarks')">{{ $errors->first('remarks') }}</label>
                             @endif
@@ -426,6 +1122,20 @@
 <!-- End custom js for this page -->
 <script type="text/javascript">
   $(document).ready(function() {
+    $('#pricecard_condition').hide();
+    $("#pricecard").on("change", function() {
+        if (this.checked) {
+            $('#pricecard_condition').show();
+        }
+        else{
+          $('#pricecard_condition').hide();
+        }
+    });
+    $('#posminventory').hide();
+    $(".new_innovation_posm").on("change", function() {
+      $('#posminventory').show();
+    });      
+
     if($('#conc').val() == '')
     {
       $("#conc").empty();
