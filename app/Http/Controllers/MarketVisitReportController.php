@@ -175,7 +175,7 @@ class MarketVisitReportController extends Controller
             'cabinet_placement'             =>  serialize($request->cabinet_placement),
             'cabinet_position_change'       =>  $request->cabinet_position_change == null ? null : serialize($request->cabinet_position_change),
             'competition_visibility'        =>  $request->competition_visibility == null ? null : serialize($request->competition_visibility),
-            'competition_visibility_type'   =>  $request->competition_visibility_type == null ? null : serialize($request->competition_visibility_type),
+            'competition_visibility_type'   =>  $request->competition_visibility_type == null ? null :serialize($request->competition_visibility_type),
             'verification'                  =>  serialize($request->verification),
             'remarks'                       =>  $request->remarks,
             'retailer_contact'              =>  $request->retailer_contact,

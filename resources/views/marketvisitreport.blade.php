@@ -209,8 +209,9 @@
                                 <div class="col-sm-9">
                                   <div class="input-group">
                                     <input type="text" class="form-control{{ $errors->has('bar_code') ? ' form-control-danger' : '' }}" name="bar_code" value="{{old('bar_code')}}" required="required">
+                                    <input type="file" name="" class="file-upload-default" accept="image/*" capture>
                                     <div class="input-group-append">
-                                      <button class="btn btn-sm btn-primary" type="button">Scane</button>
+                                      <button class="file-upload-browse btn btn-sm btn-primary" type="button">Scane</button>
                                     </div>
                                   </div>
                                   @if ($errors->has('bar_code'))
@@ -1072,7 +1073,7 @@
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Image</label>
-                                <input type="file" name="images[]" id="image" multiple="multiple" class="file-upload-default" accept="image/*" capture="camera">
+                                <input type="file" name="images" id="image" class="file-upload-default" accept="image/*" capture="camera">
                                 <div class="input-group col-sm-9">
                                   <input type="text" class="form-control{{ $errors->has('image') ? ' form-control-danger' : '' }} file-upload-info" disabled placeholder="Images Upload">
                                   <span class="input-group-append">
