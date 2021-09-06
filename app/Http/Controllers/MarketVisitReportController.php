@@ -103,7 +103,7 @@ class MarketVisitReportController extends Controller
      */
     public function store(Request $request)
     {
-        // file_put_contents('postrequest.txt', json_encode($request->all()));
+        
         $request->validate([
                 'region'                        => 'required|integer',
                 'conc'                          => 'required|integer',
@@ -135,10 +135,10 @@ class MarketVisitReportController extends Controller
                 'cabinet_placement.*'           => 'required|string',
                 'cabinet_position_change'       => 'nullable|array|min:1',
                 'cabinet_position_change.*'     => 'nullable|string',
-                'competition_visibility'        => 'required|array|min:1',
-                'competition_visibility.*'      => 'required|string',
-                'competition_visibility_type'   => 'required|array|min:1',
-                'competition_visibility_type.*' => 'required|string',
+                'competition_visibility'        => 'nullable|array|min:1',
+                'competition_visibility.*'      => 'nullable|string',
+                'competition_visibility_type'   => 'nullable|array|min:1',
+                'competition_visibility_type.*' => 'nullable|string',
                 'verification'                  => 'required|array|min:1',
                 'verification.*'                => 'required|string',
                 'images'                        => 'nullable|image',
@@ -173,9 +173,9 @@ class MarketVisitReportController extends Controller
             'new_innovation_posm'           =>  $request->new_innovation_posm,
             'walls_visibility'              =>  serialize($request->walls_visibility),
             'cabinet_placement'             =>  serialize($request->cabinet_placement),
-            'cabinet_position_change'       =>  serialize($request->cabinet_position_change),
-            'competition_visibility'        =>  serialize($request->competition_visibility),
-            'competition_visibility_type'   =>  serialize($request->competition_visibility_type),
+            'cabinet_position_change'       =>  $request->cabinet_position_change == null ? null : serialize($request->cabinet_position_change),
+            'competition_visibility'        =>  $request->competition_visibility == null ? null : serialize($request->competition_visibility),
+            'competition_visibility_type'   =>  $request->competition_visibility_type == null ? null : serialize($request->competition_visibility_type),
             'verification'                  =>  serialize($request->verification),
             'remarks'                       =>  $request->remarks,
             'retailer_contact'              =>  $request->retailer_contact,
@@ -235,7 +235,7 @@ class MarketVisitReportController extends Controller
 
     // public function report()
     // {
-    //     $territory_reports = MarketVisitReport::whereIn('territory_id',$data)->whereBetween('created_at',[$request->from.' 00:00:00',$request->to." 23:59:59"])->get();
+    //     $territory_reports = MarketVisitReport::all();
     //     return view('exports.report', [
     //         'marketvisitsreport' => $territory_reports
     //     ]);

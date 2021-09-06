@@ -18,8 +18,8 @@
         <th>STOCK LEVEL</th>
         <th>CABINET TYPE</th>
         <th>CABINET LIVERY CONDITION</th>
-        <th>COTC AVAILABILITY/NEW INNOVATION</th>
-        <th>NEW INNOVATION STATUS</th>
+        <th colspan="14" style="text-align: center;">COTC AVAILABILITY/NEW INNOVATION</th>
+        <th colspan="14" style="text-align: center;">NEW INNOVATION STATUS</th>
         <th>HOUSE KEEPING</th>
         <th>PRICE CARD CONDITION</th>
         <th>POSM DEPLOYMENT</th>
@@ -28,7 +28,7 @@
         <th>CABINET POSITION CHANGE</th>
         <th>COMPETITION</th>
         <th>COMPETITION VISIBILITY</th>
-        <th>VERIFICATION</th>
+        <th colspan="8" style="text-align: center;">VERIFICATION</th>
         <th>VISITER REMARKS</th>
         <th>RETAILER CONTACT</th>
         <th>RETAILER FEEDBACK</th>
@@ -56,8 +56,14 @@
             <td>{{ $report->stock_level }}</td>
             <td>{{implode(', ',unserialize($report->cabinet_type)) }}</td>
             <td>{{ $report->cabinet_condition }}</td>
-            <td>{{ implode(', ',unserialize($report->cotc_availability)) }}</td>
-            <td>{{ implode(', ',unserialize($report->new_innovation_status)) }}</td>
+            @foreach(unserialize($report->cotc_availability) as $key => $value)
+            <td> {{ $key }} </td>
+            <td> {{ $value }} </td>
+            @endforeach
+            @foreach(unserialize($report->new_innovation_status) as $key => $value)
+            <td> {{ $key }} </td>
+            <td> {{ $value }} </td>
+            @endforeach
             <td>{{ implode(', ',unserialize($report->house_keeping)) }}</td>
             <td>{{ $report->price_card_condition }}</td>
             <td>{{ $report->new_innovation_posm }}</td>
@@ -66,7 +72,10 @@
             <td>{{ $report->cabinet_position_change != '' ? implode(', ',unserialize($report->cabinet_position_change)) : '' }}</td>
             <td>{{ implode(', ',unserialize($report->competition_visibility)) }}</td>
             <td>{{ implode(', ',unserialize($report->competition_visibility_type)) }}</td>
-            <td>{{ implode(', ',unserialize($report->verification)) }}</td>
+            @foreach(unserialize($report->verification) as $key => $value)
+            <td> {{ $key }} </td>
+            <td> {{ $value }} </td>
+            @endforeach
             <td>{{ $report->remarks }}</td>
             <td>{{ $report->retailer_contact }}</td>
             <td>{{ $report->retailer_feedback }}</td>

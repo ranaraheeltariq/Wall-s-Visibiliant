@@ -354,7 +354,7 @@
                                 <div class="col-sm-3 cw">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cabinet_condition" id="membershipRadios2" value="Average"> Average <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cabinet_condition" id="membershipRadios2" value="Average" checked="checked"> Average <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                               </div>
@@ -372,91 +372,91 @@
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['JET SPOT']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[JET SPOT]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['JET SPOT']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[JET SPOT]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">CHOC BAR</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['CHOC BAR']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[CHOC BAR]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['CHOC BAR']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[CHOC BAR]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">CONE DOUBLE</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['CONE DOUBLE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[CONE DOUBLE]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['CONE DOUBLE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[CONE DOUBLE]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">FEAST</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['FEAST']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[FEAST]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['FEAST']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[FEAST]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">ONE MANGO</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['ONE MANGO']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[ONE MANGO]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['ONE MANGO']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[ONE MANGO]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">0NE KK</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['0NE KK']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[0NE KK]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['0NE KK']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[0NE KK]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">DONUT</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['DONUT']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[DONUT]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="cotc_availability['DONUT']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="cotc_availability[DONUT]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                   @if ($errors->has('cotc_availability'))
@@ -473,91 +473,91 @@
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['CONE BROWNIE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[CONE BROWNIE]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['CONE BROWNIE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[CONE BROWNIE]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">DOUBLE TROUBLE</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['DOUBLE TROUBLE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[DOUBLE TROUBLE]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['DOUBLE TROUBLE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[DOUBLE TROUBLE]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">JASHAN KULFI</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['JASHAN KULFI']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[JASHAN KULFI]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['JASHAN KULFI']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[JASHAN KULFI]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">MINIONS CONE</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CONE']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[MINIONS CONE]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CONE']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[MINIONS CONE]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">MINIONS CUP</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CUP']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[MINIONS CUP]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['MINIONS CUP']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[MINIONS CUP]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">ONE CARAMEL</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE CARAMEL']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[ONE CARAMEL]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE CARAMEL']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[ONE CARAMEL]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">ONE COOKIES & CAREEM</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE COOKIES & CAREEM']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[ONE COOKIES & CAREEM]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="new_innovation_status['ONE COOKIES & CAREEM']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="new_innovation_status[ONE COOKIES & CAREEM]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 @if ($errors->has('new_innovation_status'))
@@ -858,14 +858,14 @@
                                   <div class="col-sm-3 cw">
                                     <div class="form-check">
                                       <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['FROM']" value="BOH" > BOH <i class="input-helper"></i>
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change[FROM]" value="BOH" > BOH <i class="input-helper"></i>
                                       </label>
                                     </div>
                                   </div>
                                   <div class="col-sm-3 cw">
                                     <div class="form-check">
                                       <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['FROM']" value="RANDOM"> RANDOM <i class="input-helper"></i></label>
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change[FROM]" value="RANDOM"> RANDOM <i class="input-helper"></i></label>
                                     </div>
                                   </div>
                               </div>
@@ -876,13 +876,13 @@
                                   <div class="col-sm-5 cw">
                                     <div class="form-check">
                                       <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['TO']" value="IMPULSE TRIANGLE"> IMPULSE TRIANGLE <i class="input-helper"></i></label>
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change[TO]" value="IMPULSE TRIANGLE"> IMPULSE TRIANGLE <i class="input-helper"></i></label>
                                     </div>
                                   </div>
                                   <div class="col-sm-5 cw">
                                     <div class="form-check">
                                       <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change['TO']" value="OUTSIDE SHOPS"> OUTSIDE SHOPS <i class="input-helper"></i></label>
+                                        <input type="checkbox" class="form-check-input" name="cabinet_position_change[TO]" value="OUTSIDE SHOPS"> OUTSIDE SHOPS <i class="input-helper"></i></label>
                                     </div>
                                   </div>
                                   @if ($errors->has('cabinet_position_change'))
@@ -999,52 +999,52 @@
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['TTS']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[TTS]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['TTS']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[TTS]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">Comp. Invoice</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['Comp. Invoice']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[Comp. Invoice]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['Comp. Invoice']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[Comp. Invoice]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">TPR Given</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['TPR Given']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[TPR Given]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['TPR Given']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[TPR Given]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <label class="col-sm-2 col-form-label text-uppercase cw-25">Demage Stock</label>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['Demage Stock']" value="Yes"> Yes <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[Demage Stock]" value="Yes"> Yes <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-1 cw-25">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input" name="verification['Demage Stock']" value="No" checked="checked"> No <i class="input-helper"></i></label>
+                                      <input type="radio" class="form-check-input" name="verification[Demage Stock]" value="No" checked="checked"> No <i class="input-helper"></i></label>
                                   </div>
                                 </div>
                                 @if ($errors->has('verification'))
@@ -1072,7 +1072,7 @@
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Image</label>
-                                <input type="file" name="images" id="image" class="file-upload-default" accept="image/*" capture="camera">
+                                <input type="file" name="images[]" id="image" multiple="multiple" class="file-upload-default" accept="image/*" capture="camera">
                                 <div class="input-group col-sm-9">
                                   <input type="text" class="form-control{{ $errors->has('image') ? ' form-control-danger' : '' }} file-upload-info" disabled placeholder="Images Upload">
                                   <span class="input-group-append">

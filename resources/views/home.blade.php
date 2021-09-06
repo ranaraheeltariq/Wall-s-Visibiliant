@@ -113,7 +113,7 @@
     <script src="{{ asset('assets') }}/js/select2.js"></script>
     {{-- <script src="{{ asset('assets') }}/js/morris.js"></script> --}}
     @php $array = array() @endphp
-     @foreach(App\Models\MarketVisitReport::pluck('walls_visibility')->toArray() as $count)
+     @foreach(App\Models\MarketVisitReport::distinct('retailer_code')->pluck('walls_visibility','retailer_code')->toArray() as $count)
         @php $array = array_merge($array, unserialize($count)) @endphp
       @endforeach
     <script type="text/javascript">
