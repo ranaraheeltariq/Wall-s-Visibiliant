@@ -175,14 +175,14 @@ class MarketVisitReportController extends Controller
             'cabinet_placement'             =>  serialize($request->cabinet_placement),
             'cabinet_position_change'       =>  $request->cabinet_position_change == null ? null : serialize($request->cabinet_position_change),
             'competition_visibility'        =>  $request->competition_visibility == null ? null : serialize($request->competition_visibility),
-            'competition_visibility_type'   =>  $request->competition_visibility_type == null ? null :serialize($request->competition_visibility_type),
+            'competition_visibility_type'   =>  $request->competition_visibility_type == null ? null : serialize($request->competition_visibility_type),
             'verification'                  =>  serialize($request->verification),
             'remarks'                       =>  $request->remarks,
             'retailer_contact'              =>  $request->retailer_contact,
             'retailer_feedback'             =>  $request->retailer_feedback,
             'images'                        =>  $image,
         ]);
-        // dd($data);
+
         MarketVisitReport::create($data);
         return back()->with('status','Report Successfully Submitted');
     }
@@ -213,7 +213,6 @@ class MarketVisitReportController extends Controller
                 $conc[] = $tr->id;
             }
             $data = $conc;
-            // dd($data);
         }
         else if($territory == null && $conc == null && $region != null){
             $cons = Conc::where('region_id',$region)->get();
@@ -227,7 +226,6 @@ class MarketVisitReportController extends Controller
             }
             $data = $region;
         }
-        // dd('error');
 
         $territory_reports = MarketVisitReport::whereIn('territory_id',$data)->whereBetween('created_at',[$request->from.' 00:00:00',$request->to." 23:59:59"])->get();
         return Excel::download(new MarketVisitReportExport($territory_reports), 'Market Visit Report.xlsx');
